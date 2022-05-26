@@ -3,9 +3,6 @@ from piece import Pawn, Knight, Bishop, Rook, Queen, King
 class Board:
     def __init__(self) -> None:
         self.board = self.initialize_board()
-        self.legal_moves_black = []
-        self.legal_moves_white = []
-        self.update_legal_moves()
 
     def initialize_board(self):
         piece_counts = {
@@ -18,8 +15,14 @@ class Board:
         }
         pass
 
-    def update_board(self, xy: list) -> None:
+    def move_piece(self, piece_xy: list, destination_xy: list) -> None:
         pass
 
-    def update_legal_moves(self) -> None:
+    def legal_moves_white(self) -> list:
+        pass
+
+    def legal_moves_black(self) -> list:
+        pass
+
+    def move_is_legal(xy: list) -> bool:
         pass
