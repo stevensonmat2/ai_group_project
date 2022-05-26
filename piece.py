@@ -44,8 +44,8 @@ class Knight(Piece):
 
 
 class Bishop(Piece):
-    def __init__(self, starting_position: list) -> None:
-        super().__init__(starting_position)
+    def __init__(self, starting_position: list, color: int, board: Board) -> None:
+        super().__init__(starting_position, color, board)
         self.name = "Bishop"
         self.value = 3
         self.max_move_spaces = 8
@@ -54,8 +54,8 @@ class Bishop(Piece):
 
 
 class Rook(Piece):
-    def __init__(self, starting_position: list) -> None:
-        super().__init__(starting_position)
+    def __init__(self, starting_position: list, color: int, board: Board) -> None:
+        super().__init__(starting_position, color, board)
         self.name = "Rook"
         self.value = 5
         self.max_move_spaces = 8
@@ -64,8 +64,8 @@ class Rook(Piece):
 
 
 class Queen(Piece):
-    def __init__(self, starting_position: list) -> None:
-        super().__init__(starting_position)
+    def __init__(self, starting_position: list, color: int, board: Board) -> None:
+        super().__init__(starting_position, color, board)
         self.name = "Queen"
         self.value = 9
         self.max_move_spaces = 8
@@ -83,8 +83,8 @@ class Queen(Piece):
 
 
 class King(Piece):
-    def __init__(self, starting_position: list) -> None:
-        super().__init__(starting_position)
+    def __init__(self, starting_position: list, color: int, board: Board) -> None:
+        super().__init__(starting_position, color, board)
         self.name = "King"
         self.value = 100
         self.max_move_spaces = 1
