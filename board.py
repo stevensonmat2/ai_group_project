@@ -1,5 +1,6 @@
 from piece import Pawn, Knight, Bishop, Rook, Queen, King
 
+
 class Board:
     def __init__(self) -> None:
         self.board = self.initialize_board()
