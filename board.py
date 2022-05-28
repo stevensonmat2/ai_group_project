@@ -1,4 +1,4 @@
-from piece import Pawn, Knight, Bishop, Rook, Queen, King
+#from piece import Pawn, Knight, Bishop, Rook, Queen, King
 
 
 class Board:
