@@ -39,6 +39,3 @@ class Game:
 
     def agent_move(self):
         pass
-
-game = Game()
-game.playAgentVsAgent()
