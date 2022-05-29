@@ -19,11 +19,11 @@ class Agent:
         action_value = self.miniMax(StateNode(state,self.is_white),max,alpha,beta,max_depth)
         return action_value[1]
 
-    # recusive call to miniMax
+    # recursive call to miniMax
     # state: StateNode object
     # max: bool type. True for maximizing, False for minimizing
-    # alpha: intalized as -inf
-    # beta: intalized as +inf
+    # alpha: initialized as -inf
+    # beta: initialized as +inf
     # depth: starts at max depth. Decreases every call until 0 is reached
     def miniMax(self,state: StateNode, max: bool, alpha, beta, depth)->list:
         action = None
