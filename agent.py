@@ -18,7 +18,7 @@ class Agent:
         action_value = []
         state_node = StateNode(board, self.is_white)
         action_value = self.miniMax(
-            state_node, max, alpha, beta, max_depth, StateNode.get_state_value
+            state_node, max, alpha, beta, max_depth, "base"
         )
         return action_value[1]
 
@@ -35,7 +35,7 @@ class Agent:
             alpha,
             beta,
             max_depth,
-            StateNode.calculate_attack_state_value,
+            "attack"
         )
         return action_value[1]
 
@@ -46,19 +46,23 @@ class Agent:
     # beta: initialized as +inf
     # depth: starts at max depth. Decreases every call until 0 is reached
     def miniMax(
-        self, state: StateNode, max: bool, alpha, beta, depth, state_value
+        self, state: StateNode, max: bool, alpha, beta, depth, value_function
     ) -> list:
+        value_functions = {
+            "base": state.get_state_value,
+            "attack": state.calculate_attack_state_value
+        }
         action = None
         maxVal = None
         # base case. Returns current state value if max depth or terminal state is reached
         if depth <= 0 or state.terminal_state():
-            return [state.state_value, action]
+            return [value_functions[value_function](), action]
         # maximizing
         if max:
             maxVal = -inf
             for act in state.calculate_legal_moves():
                 child = state.get_child(act)
-                value = self.miniMax(child, False, alpha, beta, depth - 1, state_value)
+                value = self.miniMax(child, False, alpha, beta, depth - 1, value_function)
                 if value[0] >= maxVal:
                     maxVal = value[0]
                     action = act
@@ -71,7 +75,7 @@ class Agent:
             maxVal = inf
             for act in state.calculate_legal_moves():
                 child = state.get_child(act)
-                value = self.miniMax(child, True, alpha, beta, depth - 1, state_value)
+                value = self.miniMax(child, True, alpha, beta, depth - 1, value_function)
                 if value[0] <= maxVal:
                     maxVal = value[0]
                     action = act
