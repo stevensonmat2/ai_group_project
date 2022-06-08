@@ -15,7 +15,8 @@ class Game:
     def run_simulation(self, game_type):
         game_types = {
             "a1vsa1": self.playAgentVsAgent,
-            "a1vsa2": self.play_agent_attack
+            "a1vsa2": self.play_agent_attack,
+            "human": self.playHumanVsAgent
         }
 
         print(game_types[game_type]())
